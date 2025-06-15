@@ -1,0 +1,75 @@
+display:
+  action-bar-enabled: true
+  action-bar-message: '&ePoints: %points% &7| &e(%points-per-click% / click)'
+
+storage:
+  type: yaml
+  file: data.yml
+
+save-interval: 5
+
+gui:
+  title: '&6&lBoutique de Clicks'
+  rows: 3
+
+  filler-item:
+    material: AIR
+    name: ''
+    lore: []
+
+  upgrade-item:
+    slot: 11
+    material: DIAMOND
+    name: '&6&lUpgrades'
+    lore:
+      - '&eAméliore tes &fpoints &epar &fclick.'
+      - '&fNiveau actuel: &e%level%'
+      - '&fCoût :&e %cost% points'
+
+  boost-item:
+    slot: 15
+    material: EMERALD
+    name: '&6&lBoosts'
+    lore:
+      - '&eAchète un &fboost &etemporaire'
+      - '&eet &faméliore &etes &fgains&e.'
+
+  # Nouveau menu détaillé des boosts
+  boost-gui:
+    title: '&6&lMenu des Boosts'
+    slot-click-start: 10
+    slot-passive-start: 16
+
+    lore:
+      click:
+        - '&eCoût : &f%cost% pts'
+        - '&eRajoute &f%extra_pcc%&e par clic pendant &f%duration%s'
+        - '&eCooldown : &f%cooldown%s'
+      passive:
+        - '&eCoût : &f%cost% pts'
+        - '&eAjoute &f%pps% &epoints par secondes pendant &f%duration%s'
+        - '&eCooldown : &f%cooldown%s'
+
+upgrades:
+  base-cost: 100.0
+  cost-multiplier: 1.07
+  base-points-per-click: 1.0
+  points-multiplier: 1.05
+  max-level: 300
+
+boosts:
+  click-boosts:
+    - name: '&6&lTurbo Click'
+      material: SUGAR
+      cost: 500
+      extra-points-per-click: 10
+      duration: 60
+      cooldown: 600
+
+  passive-boosts:
+    - name: '&6&lGénérateur'
+      material: WATCH
+      cost: 300
+      points-per-second: 5
+      duration: 60
+      cooldown: 600

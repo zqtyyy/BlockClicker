@@ -1,0 +1,57 @@
+name: BlockClicker
+version: 1.0
+main: org.zqty.blockClicker.Main
+api-version: 1.16
+
+commands:
+  bc:
+    description: BlockClicker main command
+    usage: /<command> <add|set|reload|points|give|top>
+    aliases: [blockclicker]
+    permissions:
+      bc.add: blockclicker.commands.add
+      bc.set: blockclicker.commands.set
+      bc.reload: blockclicker.commands.reload
+      bc.points: blockclicker.commands.points
+      bc.give: blockclicker.commands.give
+      bc.top: blockclicker.commands.top
+
+permissions:
+  blockclicker.use:
+    description: Peut cliquer sur le bloc
+    default: true
+
+  blockclicker.admin:
+    description: Accès à toutes les commandes
+    default: op
+    children:
+      blockclicker.commands.reload: true
+      blockclicker.commands.give: true
+      blockclicker.commands.set: true
+
+  blockclicker.commands.add:
+    description: /bc add <id>
+    default: op
+
+  blockclicker.commands.set:
+    description: /bc set <joueur> <montant>
+    default: op
+
+  blockclicker.commands.reload:
+    description: /bc reload
+    default: op
+
+  blockclicker.commands.points:
+    description: /bc points
+    default: true
+
+  blockclicker.commands.give:
+    description: /bc give
+    default: op
+
+  blockclicker.commands.top:
+    description: /bc top
+    default: true
+  blockclicker.commands.resettop:
+    description: Réinitialise tous les points/ /bc resettop
+    default: op

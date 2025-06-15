@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.zqty'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigot-snapshots'
+        url  = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    // (gardé au cas où vous utilisez encore bungeecord-chat)
+    maven {
+        name = 'elmakers'
+        url  = 'https://maven.elmakers.com/repository/'
+    }
+}
+
+dependencies {
+    // Spigot 1.8.8 (API + CraftBukkit/NMS)
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+
+    // Tous les JARs que tu as mis dans libs/, y compris placeholderapi.jar
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand version: project.version
+    }
+}
